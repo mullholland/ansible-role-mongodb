@@ -1,0 +1,27 @@
+---
+molecule_exceptions:
+  - variation: "RedHat/CentOS/Fedora"
+    reason: "Not fully tested because of weird behaviour while testing with molecule/Docker."
+  - variation: "Rockylinux"
+    reason: "Not fully tested because of weird behaviour while testing with molecule/Docker."
+  - variation: "Almalinux"
+    reason: "Not fully tested because of weird behaviour while testing with molecule/Docker."
+  - variation: "Amazonlinux"
+    reason: "Not officially supported."
+molecule_scenarios:
+  - scenario: "default"
+    ansible: ["previous", "current", "development"]
+    platforms:
+      - "debian10"
+      - "debian11"
+      - "ubuntu1804"
+      - "ubuntu2004"
+      - "ubuntu2204"
+  - scenario: "version-lock"
+    ansible: ["previous", "current", "development"]
+    platforms:
+      - "debian10"
+      - "debian11"
+      - "ubuntu1804"
+      - "ubuntu2004"
+      - "ubuntu2204"

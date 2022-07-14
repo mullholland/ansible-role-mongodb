@@ -1,0 +1,19 @@
+---
+- name: "create mongodb config in {{ mongodb_config_file }}"
+  ansible.builtin.template:
+    src: "mongod.conf.j2"
+    dest: "{{ mongodb_config_file }}"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+  notify:
+    - "restart mongod"
+
+- name: "create mongodb logrotate config in /etc/logrotate.d/mongodb.conf"
+  ansible.builtin.template:
+    src: "logrotate.conf.j2"
+    dest: "/etc/logrotate.d/mongodb.conf"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+  when: mongodb_logrotate

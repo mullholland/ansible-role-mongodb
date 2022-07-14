@@ -1,0 +1,35 @@
+---
+- name: APT | Add mongodb key
+  ansible.builtin.apt_key:
+    url: "{{ mongodb_apt_repository.gpgkey }}"
+    state: present
+    validate_certs: false
+
+- name: APT | Add mongodb repository
+  ansible.builtin.apt_repository:
+    repo: "{{ mongodb_apt_repository.repo }}"
+    state: present
+    filename: "{{ mongodb_apt_repository.name }}"
+  register: repository_mongodb_status
+
+- name: APT | Update repository cache
+  ansible.builtin.apt:
+    update_cache: true
+  when:
+    - repository_mongodb_status.changed
+  # Data should be refreshed immediatly for other roles which depend on them
+  # Flush handlers is not used because it would potentially flush handlers,
+  # which are not meant to be flushed at this point in the playbook
+  tags:
+    - skip_ansible_lint
+
+- name: APT | Install mongodb
+  ansible.builtin.apt:
+    name: "{{ mongodb_packages }}"
+    state: present
+
+- name: APT | apt-mark hold mongodb_packages
+  command: apt-mark hold {{ item }}
+  with_items:
+    - "{{ mongodb_packages }}"
+  when: mongodb_packages_pin

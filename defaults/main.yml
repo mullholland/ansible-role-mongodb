@@ -1,0 +1,55 @@
+---
+mongodb_yum_repository:
+  name: "mongodb-org-5.0"
+  baseurl: "https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/5.0/x86_64/"
+  gpgcheck: "1"
+  gpgkey: "https://www.mongodb.org/static/pgp/server-5.0.asc"
+  enabled: "1"
+
+mongodb_apt_repository:
+  name: "mongodb-org-5.0"
+  gpgkey: "https://www.mongodb.org/static/pgp/server-5.0.asc"
+  repo: 'deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/{{ ansible_distribution | lower }} {{ ansible_distribution_release | lower }}/mongodb-org/5.0 {{ "multiverse" if ansible_distribution == "Ubuntu" else "main" }}'
+
+mongodb_packages:
+  - "mongodb-org"
+
+mongodb_packages_pin: false
+
+# To pin the mongodb version install a specifiv versions
+# and enable pin
+# mongodb_packages:
+#   - "mongodb-org-5.0.9"
+#   - "mongodb-org-database-5.0.9"
+#   - "mongodb-org-server-5.0.9"
+#   - "mongodb-org-shell-5.0.9"
+#   - "mongodb-org-mongos-5.0.9"
+#   - "mongodb-org-tools-5.0.9"
+# mongodb_packages_pin: true
+
+# for documentation of all options, see:
+#   http://docs.mongodb.org/manual/reference/configuration-options/
+# Will be writenn with `to_nice_yaml` to {{ mongodb_config_file }}
+mongodb_config:
+  storage:
+    dbPath: "{{ mongodb_data_dir }}"
+    journal:
+      enabled: true
+  systemLog:
+    destination: file
+    logAppend: true
+    path: "{{ mongodb_log_dir }}/mongod.log"
+  net:
+    port: 27017
+    bindIp: 127.0.0.1
+  processManagement:
+    timeZoneInfo: /usr/share/zoneinfo
+
+# Log rotation
+mongodb_logrotate: true
+mongodb_logrotate_options:
+  - compress
+  - copytruncate
+  - daily
+  - dateext
+  - rotate 7

@@ -1,0 +1,20 @@
+---
+- name: Include distribution specific variables
+  ansible.builtin.include_vars: "{{ ansible_os_family }}.yml"
+
+- name: install mongodb on RedHat
+  include_tasks: install_redhat.yml
+  when: ansible_os_family == "RedHat"
+
+- name: install mongodb on Debian
+  include_tasks: install_debian.yml
+  when: ansible_os_family == "Debian"
+
+- name: create mongodb configuration
+  include_tasks: config.yml
+
+- name: start mongod service
+  ansible.builtin.service:
+    name: "mongod"
+    state: started
+    enabled: true

@@ -5,4 +5,3 @@ mongodb_group: "mongod"
 mongodb_data_dir: "/var/lib/mongo"
 mongodb_log_dir: "/var/log/mongodb"
 mongodb_config_file: "/etc/mongod.conf"
-

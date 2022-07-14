@@ -29,7 +29,7 @@
     state: present
 
 - name: APT | apt-mark hold mongodb_packages
-  command: apt-mark hold {{ item }}
+  ansible.builtin.command: apt-mark hold {{ item }}
   with_items:
     - "{{ mongodb_packages }}"
   when: mongodb_packages_pin

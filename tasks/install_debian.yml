@@ -36,3 +36,4 @@
   # APT module does not support versionlock ATM
   tags:
     - skip_ansible_lint
+    - molecule-idempotence-notest

@@ -1,0 +1,17 @@
+---
+- name: Converge
+  hosts: all
+  become: true
+  gather_facts: true
+  vars:
+    mongodb_packages:
+      - "mongodb-org-5.0.9"
+      - "mongodb-org-database-5.0.9"
+      - "mongodb-org-server-5.0.9"
+      - "mongodb-org-shell-5.0.9"
+      - "mongodb-org-mongos-5.0.9"
+      - "mongodb-org-tools-5.0.9"
+    mongodb_packages_pin: true
+
+  roles:
+    - role: "ansible-role-mongodb"

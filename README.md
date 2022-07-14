@@ -95,7 +95,6 @@ This role has been tested on these [container images](https://hub.docker.com/u/m
 -   [debian11](https://hub.docker.com/r/mullholland/docker-molecule-debian11)
 -   [ubuntu1804](https://hub.docker.com/r/mullholland/docker-molecule-ubuntu1804)
 -   [ubuntu2004](https://hub.docker.com/r/mullholland/docker-molecule-ubuntu2004)
--   [ubuntu2204](https://hub.docker.com/r/mullholland/docker-molecule-ubuntu2204)
 
 The minimum version of Ansible required is 2.10, tests have been done to:
 
@@ -119,6 +118,7 @@ Some variations of the build matrix do not work. These are the variations and re
 | Rockylinux | Not fully tested because of weird behaviour while testing with molecule/Docker. |
 | Almalinux | Not fully tested because of weird behaviour while testing with molecule/Docker. |
 | Amazonlinux | Not officially supported. |
+| Ubuntu 2204 | No release file ATM. |
 
 
 If you find issues, please register them in [GitHub](https://github.com/mullholland/ansible-role-mongodb/issues)

@@ -8,6 +8,8 @@ molecule_exceptions:
     reason: "Not fully tested because of weird behaviour while testing with molecule/Docker."
   - variation: "Amazonlinux"
     reason: "Not officially supported."
+  - variation: "Ubuntu 2204"
+    reason: "No release file ATM."
 molecule_scenarios:
   - scenario: "default"
     ansible: ["previous", "current", "development"]
@@ -16,7 +18,7 @@ molecule_scenarios:
       - "debian11"
       - "ubuntu1804"
       - "ubuntu2004"
-      - "ubuntu2204"
+
   - scenario: "version-lock"
     ansible: ["previous", "current", "development"]
     platforms:
@@ -24,4 +26,3 @@ molecule_scenarios:
       - "debian11"
       - "ubuntu1804"
       - "ubuntu2004"
-      - "ubuntu2204"

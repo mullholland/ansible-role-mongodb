@@ -37,7 +37,7 @@ linting:
     - if: $CI_COMMIT_REF_NAME == "main"
   parallel:
     matrix:
-      - PLATFORM: [debian10, debian11, ubuntu1804, ubuntu2004, ubuntu2204]  # yamllint disable-line rule:line-length
+      - PLATFORM: [debian10, debian11, ubuntu1804, ubuntu2004]  # yamllint disable-line rule:line-length
   script:
     - "scenario=${SCENARIO} ansible=${ANSIBLE} platform=${PLATFORM} /opt/molecule.sh"
 
@@ -52,7 +52,7 @@ linting:
     - if: $CI_COMMIT_REF_NAME == "main"
   parallel:
     matrix:
-      - PLATFORM: [debian10, debian11, ubuntu1804, ubuntu2004, ubuntu2204]  # yamllint disable-line rule:line-length
+      - PLATFORM: [debian10, debian11, ubuntu1804, ubuntu2004]  # yamllint disable-line rule:line-length
   script:
     - "scenario=${SCENARIO} ansible=${ANSIBLE} platform=${PLATFORM} /opt/molecule.sh"
 
@@ -68,7 +68,7 @@ linting:
     - if: $CI_COMMIT_REF_NAME == "main"
   parallel:
     matrix:
-      - PLATFORM: [debian10, debian11, ubuntu1804, ubuntu2004, ubuntu2204]  # yamllint disable-line rule:line-length
+      - PLATFORM: [debian10, debian11, ubuntu1804, ubuntu2004]  # yamllint disable-line rule:line-length
   script:
     - "scenario=${SCENARIO} ansible=${ANSIBLE} platform=${PLATFORM} /opt/molecule.sh"
 
@@ -83,7 +83,7 @@ linting:
     - if: $CI_COMMIT_REF_NAME == "main"
   parallel:
     matrix:
-      - PLATFORM: [debian10, debian11, ubuntu1804, ubuntu2004, ubuntu2204]  # yamllint disable-line rule:line-length
+      - PLATFORM: [debian10, debian11, ubuntu1804, ubuntu2004]  # yamllint disable-line rule:line-length
   script:
     - "scenario=${SCENARIO} ansible=${ANSIBLE} platform=${PLATFORM} /opt/molecule.sh"
 
@@ -98,7 +98,7 @@ linting:
     - if: $CI_COMMIT_REF_NAME == "main"
   parallel:
     matrix:
-      - PLATFORM: [debian10, debian11, ubuntu1804, ubuntu2004, ubuntu2204]  # yamllint disable-line rule:line-length
+      - PLATFORM: [debian10, debian11, ubuntu1804, ubuntu2004]  # yamllint disable-line rule:line-length
   script:
     - "scenario=${SCENARIO} ansible=${ANSIBLE} platform=${PLATFORM} /opt/molecule.sh"
 
@@ -114,6 +114,6 @@ linting:
     - if: $CI_COMMIT_REF_NAME == "main"
   parallel:
     matrix:
-      - PLATFORM: [debian10, debian11, ubuntu1804, ubuntu2004, ubuntu2204]  # yamllint disable-line rule:line-length
+      - PLATFORM: [debian10, debian11, ubuntu1804, ubuntu2004]  # yamllint disable-line rule:line-length
   script:
     - "scenario=${SCENARIO} ansible=${ANSIBLE} platform=${PLATFORM} /opt/molecule.sh"

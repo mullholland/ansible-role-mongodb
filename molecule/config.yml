@@ -12,7 +12,7 @@ molecule_exceptions:
     reason: "No release file ATM."
 molecule_scenarios:
   - scenario: "default"
-    ansible: ["previous", "current", "development"]
+    ansible: ["previous", "current"]
     platforms:
       - "debian10"
       - "debian11"
@@ -20,7 +20,7 @@ molecule_scenarios:
       - "ubuntu2004"
 
   - scenario: "version-lock"
-    ansible: ["previous", "current", "development"]
+    ansible: ["previous", "current"]
     platforms:
       - "debian10"
       - "debian11"

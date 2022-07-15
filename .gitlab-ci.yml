@@ -8,10 +8,8 @@ stages:
   - linting
   - "default-previous"
   - "default-current"
-  - "default-development"
   - "version-lock-previous"
   - "version-lock-current"
-  - "version-lock-development"
 
 variables:
   DOCKER_HOST: "tcp://docker:2375"
@@ -56,22 +54,6 @@ linting:
   script:
     - "scenario=${SCENARIO} ansible=${ANSIBLE} platform=${PLATFORM} /opt/molecule.sh"
 
-"default-development":
-  needs:
-    - "linting"
-  allow_failure: true
-  stage: "default-development"
-  variables:
-    SCENARIO: "default"
-    ANSIBLE: "development"
-  rules:
-    - if: $CI_COMMIT_REF_NAME == "main"
-  parallel:
-    matrix:
-      - PLATFORM: [debian10, debian11, ubuntu1804, ubuntu2004]  # yamllint disable-line rule:line-length
-  script:
-    - "scenario=${SCENARIO} ansible=${ANSIBLE} platform=${PLATFORM} /opt/molecule.sh"
-
 "version-lock-previous":
   needs:
     - "linting"
@@ -94,22 +76,6 @@ linting:
   variables:
     SCENARIO: "version-lock"
     ANSIBLE: "current"
-  rules:
-    - if: $CI_COMMIT_REF_NAME == "main"
-  parallel:
-    matrix:
-      - PLATFORM: [debian10, debian11, ubuntu1804, ubuntu2004]  # yamllint disable-line rule:line-length
-  script:
-    - "scenario=${SCENARIO} ansible=${ANSIBLE} platform=${PLATFORM} /opt/molecule.sh"
-
-"version-lock-development":
-  needs:
-    - "linting"
-  allow_failure: true
-  stage: "version-lock-development"
-  variables:
-    SCENARIO: "version-lock"
-    ANSIBLE: "development"
   rules:
     - if: $CI_COMMIT_REF_NAME == "main"
   parallel:

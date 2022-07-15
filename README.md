@@ -2,7 +2,7 @@
 
 |GitHub|GitLab|
 |------|------|
-|[![github](https://github.com/mullholland/ansible-role-mongodb/workflows/Ansible%20Molecule/badge.svg)](https://github.com/mullholland/ansible-role-mongodb/actions)|[![gitlab](https://gitlab.com/mullholland/ansible-role-mongodb/badges/master/pipeline.svg)](https://gitlab.com/mullholland/ansible-role-mongodb)|[![quality](https://img.shields.io/ansible/quality/unset)](https://galaxy.ansible.com/mullholland/mongodb)|
+|[![github](https://github.com/mullholland/ansible-role-mongodb/workflows/Ansible%20Molecule/badge.svg)](https://github.com/mullholland/ansible-role-mongodb/actions)|[![gitlab](https://gitlab.com/mullholland/ansible-role-mongodb/badges/main/pipeline.svg)](https://gitlab.com/mullholland/ansible-role-mongodb)|
 
 description
 
